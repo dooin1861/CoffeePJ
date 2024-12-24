@@ -1,0 +1,23 @@
+server:
+  port: 8889
+
+spring:
+  application:
+    name: msa-architecture-server-config
+  cloud:
+    config:
+      server:
+        git:
+          # Git URI, 파일 경로 설정
+          uri: file://C:/msa-architecture-server-config-git-repository
+
+eureka:
+  client:
+    serviceUrl:
+      # 여러 Eureka 서버 주소를 한 줄로 작성
+      defaultZone: http://localhost:9091/eureka/,http://localhost:9092/eureka/
+    enabled: true
+  instance:
+    preferIpAddress: true
+    # instance-id를 명시적으로 설정할 경우
+    instance-id: my-server-instance-id
